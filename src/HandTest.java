@@ -17,4 +17,14 @@ public class HandTest {
 		assertNotNull(testObject);
 	}
 
+	@Test
+	public void testHandIsRoyalFLush() {
+		testObject.card[0].setValue("ten");
+		testObject.card[1].setValue("jack");
+		testObject.card[2].setValue("queen");
+		testObject.card[3].setValue("king");
+		testObject.card[4].setValue("ace");
+		assertTrue(testObject.isRoyalFlush());
+	}
+
 }

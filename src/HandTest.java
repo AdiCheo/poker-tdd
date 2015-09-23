@@ -19,11 +19,13 @@ public class HandTest {
 
 	@Test
 	public void testHandIsRoyalFLush() {
-		testObject.card[0].setValue("ten");
-		testObject.card[1].setValue("jack");
-		testObject.card[2].setValue("queen");
-		testObject.card[3].setValue("king");
-		testObject.card[4].setValue("ace");
+		String[] cards = new String[5];
+		cards[0] = ("ten");
+		cards[1] = ("jack");
+		cards[2] = ("queen");
+		cards[3] = ("king");
+		cards[4] = ("ace");
+		testObject.initCardsWithStrings(cards);
 		assertTrue(testObject.isRoyalFlush());
 	}
 

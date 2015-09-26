@@ -1,53 +1,53 @@
 
 public class Card {
 	
-	static String value;
+	int value;
 
-	public String getValue() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
-		Card.value = value;
+	public void setValue(int v) {
+		value = v;
 	}
 
-	public Card(String v) {
+	public Card(int v) {
 		setValue(v);
 	}
 
-	public int getIntValue() {
-		switch (value.toLowerCase()) {
-		case "one":
-			return 1;
-		case "two":
-			return 2;
-		case "three":
-			return 3;
-		case "four":
-			return 4;
-		case "five":
-			return 5;
-		case "six":
-			return 6;
-		case "seven":
-			return 7;
-		case "eight":
-			return 8;
-		case "nine":
-			return 9;
-		case "ten":
-			return 10;
-		case "jack":
-			return 11;
-		case "queen":
-			return 12;
-		case "king":
-			return 13;
-		case "ace":
-			return 14;
+	public String getStringValue() {
+		switch (value) {
+		case 1:
+			return "one";
+		case 2:
+			return "two";
+		case 3:
+			return "three";
+		case 4:
+			return "four";
+		case 5:
+			return "five";
+		case 6:
+			return "six";
+		case 7:
+			return "seven";
+		case 8:
+			return "eight";
+		case 9:
+			return "nine";
+		case 10:
+			return "ten";
+		case 11:
+			return "jack";
+		case 12:
+			return "queen";
+		case 13:
+			return "king";
+		case 14:
+			return "ace";
 
 		default:
-			return -1;
+			return null;
 		}
 	}
 	

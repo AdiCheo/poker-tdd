@@ -24,13 +24,13 @@ public class HandTest {
 
 	@Test
 	public void testAddCard() {
-		testObject.addCard(new Card("ten"));
-		assertTrue(testObject.getCards().get(0).getValue().contentEquals("ten"));
+		testObject.addCard(new Card(10));
+		assertTrue(testObject.getCards().get(0).getValue()==10);
 	}
 
 	@Test
 	public void testPrintHand() {
-		testObject.addCard(new Card("ten"));
+		testObject.addCard(new Card(10));
 //		System.out.print(testObject.getHand().get(0).getValue());
 		assertNotNull(testObject.getHand());
 	}
@@ -38,14 +38,6 @@ public class HandTest {
 
 	@Test
 	public void testHandIsRoyalFLush() {
-		String[] cards = {"ten", "jack", "queen", "king", "ace"};
-		testObject.initCardsWithStrings(cards);
-		
-		for(int i=0;i<5;i++){
-			System.out.print("I:" + cards[i]);
-			System.out.print("O" + testObject.getCards().get(i).getValue());
-		}
-		
 		assertTrue(testObject.isRoyalFlush());
 	}
 

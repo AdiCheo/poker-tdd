@@ -8,7 +8,7 @@ public class CardTest extends TestCase {
 	Card testObject;
 	
 	public void setUp(){
-		testObject = new Card("one");
+		testObject = new Card(1);
 	}
 	
 	@Test	
@@ -18,26 +18,7 @@ public class CardTest extends TestCase {
 
 	@Test
 	public void testCardIsSeven() throws Exception{
-		testObject = new Card("seven");
-		assertTrue(testObject.getValue().equalsIgnoreCase("seven"));
+		testObject = new Card(7);
+		assertTrue(testObject.getValue()==7);
 	}
-	
-	@Test
-	public void testCardIsSevenInt() throws Exception{
-		testObject = new Card("seven");
-		assertTrue(testObject.getIntValue()==7);
-	}
-	
-	@Test
-	public void testCardIsSevenCapitalInt() throws Exception{
-		testObject = new Card("Seven");
-		assertTrue(testObject.getIntValue()==7);
-	}
-	
-	@Test
-	public void testCardIsinvalid() throws Exception{
-		testObject = new Card("joker");
-		assertTrue(testObject.getIntValue()==-1);
-	}
-
 }

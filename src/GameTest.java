@@ -36,6 +36,13 @@ public class GameTest {
 		assertNotNull(pokerGame);
 	}	
 	
+
+	@Test
+	public void testCreatePlayers() {
+		pokerGame = new Game(4);
+		assertNotNull(pokerGame.getPlayers());
+	}	
+	
 	
 	@After
 	public void cleanUpStreams() {

@@ -18,14 +18,34 @@ public class HandTest {
 	}
 
 	@Test
+	public void testEmptyHand() {
+		assertNull(testObject.getHand());
+	}
+
+	@Test
+	public void testAddCard() {
+		testObject.addCard(new Card("ten"));
+		assertTrue(testObject.getCards().get(0).getValue().contentEquals("ten"));
+	}
+
+	@Test
+	public void testPrintHand() {
+		testObject.addCard(new Card("ten"));
+//		System.out.print(testObject.getHand().get(0).getValue());
+		assertNotNull(testObject.getHand());
+	}
+	
+
+	@Test
 	public void testHandIsRoyalFLush() {
-		String[] cards = new String[5];
-		cards[0] = ("ten");
-		cards[1] = ("jack");
-		cards[2] = ("queen");
-		cards[3] = ("king");
-		cards[4] = ("ace");
+		String[] cards = {"ten", "jack", "queen", "king", "ace"};
 		testObject.initCardsWithStrings(cards);
+		
+		for(int i=0;i<5;i++){
+			System.out.print("I:" + cards[i]);
+			System.out.print("O" + testObject.getCards().get(i).getValue());
+		}
+		
 		assertTrue(testObject.isRoyalFlush());
 	}
 

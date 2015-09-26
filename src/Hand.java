@@ -1,24 +1,42 @@
+import java.util.ArrayList;
 
 public class Hand {
-	private static Card[] cards;
+	private ArrayList<Card> cards = new ArrayList<Card>(5);
 
-	public static Card[] getCards() {
+	public Card findInCards(String v) {
+		for (int i=0;i<5;i++){
+			if(cards.get(i).getValue().equalsIgnoreCase(v)){
+				return cards.get(i);
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Card> getCards() {
 		return cards;
 	}
 
-	public static void setCards(Card[] cards) {
-		Hand.cards = cards;
+	public void addCard(Card c) {
+		cards.add(c);
 	}
 
 	public void initCardsWithStrings(String[] cards) {
-		Card[] tempCards = new Card[5]; 
 		for(int i=0;i<5;i++){
-			tempCards[i] = new Card(cards[i]);
+			addCard(new Card(cards[i]));
 		}
-		setCards(tempCards);
+	}
+	
+	public boolean isRoyalFlush() {
+		if (cards.get(0).getValue() == "ten" ) {
+			return true;
+		}
+		return false;
 	}
 
-	public boolean isRoyalFlush() {
-		return true;
+	public ArrayList<Card> getHand() {
+		if (cards.size() == 0)
+			return null;
+		
+		return cards;
 	}
 }

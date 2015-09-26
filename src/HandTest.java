@@ -18,6 +18,12 @@ public class HandTest {
 	}
 
 	@Test
+	public void testCreateHandObjectWithString() {
+		testObject = new Hand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertNotNull(testObject);
+	}
+
+	@Test
 	public void testEmptyHand() {
 		assertNull(testObject.getHand());
 	}

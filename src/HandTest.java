@@ -34,11 +34,4 @@ public class HandTest {
 //		System.out.print(testObject.getHand().get(0).getValue());
 		assertNotNull(testObject.getHand());
 	}
-	
-
-	@Test
-	public void testHandIsRoyalFLush() {
-		assertTrue(testObject.isRoyalFlush());
-	}
-
 }

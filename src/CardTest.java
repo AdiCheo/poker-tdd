@@ -21,5 +21,23 @@ public class CardTest extends TestCase {
 		testObject = new Card("seven");
 		assertTrue(testObject.getValue().equalsIgnoreCase("seven"));
 	}
+	
+	@Test
+	public void testCardIsSevenInt() throws Exception{
+		testObject = new Card("seven");
+		assertTrue(testObject.getIntValue()==7);
+	}
+	
+	@Test
+	public void testCardIsSevenCapitalInt() throws Exception{
+		testObject = new Card("Seven");
+		assertTrue(testObject.getIntValue()==7);
+	}
+	
+	@Test
+	public void testCardIsinvalid() throws Exception{
+		testObject = new Card("joker");
+		assertTrue(testObject.getIntValue()==-1);
+	}
 
 }

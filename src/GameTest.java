@@ -29,6 +29,12 @@ public class GameTest {
 	public void testNewGameAsksForNumberOfPlayer() {
 	    assertEquals("Welcome to PokerTDD - How many players are present?", outContent.toString().trim());
 	}	
+
+	@Test
+	public void testCreateGameWithFourPlayers() {
+		pokerGame = new Game(4);
+		assertNotNull(pokerGame);
+	}	
 	
 	
 	@After

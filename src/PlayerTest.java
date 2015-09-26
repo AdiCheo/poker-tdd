@@ -18,6 +18,7 @@ public class PlayerTest {
 
 	@Test
 	public void testGetPlayerId() {
-		assertFalse(testObject.getId() < 5);
+		testObject.setId(0);
+		assertTrue(testObject.getId() < 4 && testObject.getId() >= 0);
 	}
 }

@@ -1,7 +1,8 @@
 
 public class Player {
-	
+
 	int id;
+	Hand playerHand;
 
 	public void setId(int id) {
 		this.id = id;
@@ -11,4 +12,11 @@ public class Player {
 		return this.id;
 	}
 
+	public void setHand(String playerHand) {
+		this.playerHand = new Hand();
+	}
+
+	public Object getHand() {
+		return this.playerHand;	
+	}
 }

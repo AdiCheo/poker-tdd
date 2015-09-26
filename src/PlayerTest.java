@@ -17,8 +17,14 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testGetPlayerId() {
+	public void testPlayerId() {
 		testObject.setId(0);
 		assertTrue(testObject.getId() < 4 && testObject.getId() >= 0);
+	}
+
+	@Test
+	public void testCreatePlayerHand() {
+		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertNotNull(testObject.getHand());
 	}
 }

@@ -23,12 +23,6 @@ public class CardTest extends TestCase {
 	}
 
 	@Test
-	public void testCardIsSpades() {
-		testObject = new Card(7, 1);
-		assertTrue(testObject.getValue()==7);
-	}
-
-	@Test
 	public void testGetStringValue() {
 		testObject = new Card(7, 1);
 		assertTrue(testObject.getStringValue().equals("Seven"));

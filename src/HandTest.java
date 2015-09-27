@@ -108,6 +108,12 @@ public class HandTest {
 	}
 
 	@Test
+	public void testCreateHandObjectWithStringValues() {
+		testObject = new Hand("OneSpades TwoClubs ThreeDiamonds FourHearts FiveHearts");
+		assertEquals("OneSpades TwoClubs ThreeDiamonds FourHearts FiveHearts", testObject.getHandString());
+	}
+
+	@Test
 	public void testEmptyHand() {
 		assertNull(testObject.getHand());
 	}

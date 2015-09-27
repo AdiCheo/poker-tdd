@@ -27,4 +27,10 @@ public class PlayerTest {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
 		assertNotNull(testObject.getHand());
 	}
+
+	@Test
+	public void testCreatePlayerHandContent() {
+		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
+	}
 }

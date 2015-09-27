@@ -26,36 +26,52 @@ public class Card {
 	}
 
 	public String getStringValue() {
-		switch (value) {
+		switch (this.value) {
 		case 1:
-			return "one";
+			return "One";
 		case 2:
-			return "two";
+			return "Two";
 		case 3:
-			return "three";
+			return "Three";
 		case 4:
-			return "four";
+			return "Four";
 		case 5:
-			return "five";
+			return "Five";
 		case 6:
-			return "six";
+			return "Six";
 		case 7:
-			return "seven";
+			return "Seven";
 		case 8:
-			return "eight";
+			return "Eight";
 		case 9:
-			return "nine";
+			return "Nine";
 		case 10:
-			return "ten";
+			return "Ten";
 		case 11:
-			return "jack";
+			return "Jack";
 		case 12:
-			return "queen";
+			return "Queen";
 		case 13:
-			return "king";
+			return "King";
 		case 14:
-			return "ace";
+			return "Ace";
 
+		default:
+			return null;
+		}
+	}
+	public String getStringSuit() {
+
+		switch (this.suit) {
+		case 1:
+			return "Diamonds";
+		case 2:
+			return "Clubs";
+		case 3:
+			return "Hearts";
+		case 4:
+			return "Spades";
+		
 		default:
 			return null;
 		}

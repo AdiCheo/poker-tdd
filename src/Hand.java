@@ -9,19 +9,19 @@ public class Hand {
 			int suit;
 			if (c.charAt(c.length()-2) == 't') {
 				suit = 1;
-				addCard(c.substring(0, c.length()-6).toLowerCase());
+				addCard(c.substring(0, c.length()-6));
 			}
 			else if (c.charAt(c.length()-2) == 'e') {
 				suit = 2;
-				addCard(c.substring(0, c.length()-6).toLowerCase());
+				addCard(c.substring(0, c.length()-6));
 			}
 			else if (c.charAt(c.length()-2) == 'd') {
 				suit = 2;
-				addCard(c.substring(0, c.length()-8).toLowerCase());
+				addCard(c.substring(0, c.length()-8));
 			}
 			else if (c.charAt(c.length()-2) == 'b') {
 				suit = 2;
-				addCard(c.substring(0, c.length()-5).toLowerCase());
+				addCard(c.substring(0, c.length()-5));
 			}
 		}
 	}

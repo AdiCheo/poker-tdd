@@ -9,9 +9,19 @@ public class Hand {
 			int suit;
 			if (c.charAt(c.length()-2) == 't') {
 				suit = 1;
-				cards.add(new Card(14));
+				
+				addCard(c.substring(0, c.length()-6).toLowerCase());
 			}
 				
+		}
+	}
+
+	private void addCard(String c) {
+		if (c.equalsIgnoreCase("ace")){
+			addCard(new Card(14));
+		}
+		else if (c.equalsIgnoreCase("king")){
+			addCard(new Card(13));
 		}
 	}
 

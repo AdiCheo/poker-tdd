@@ -24,7 +24,7 @@ public class HandTest {
 	}
 
 	@Test
-	public void testCreateHandObjectWithStringValues() {
+	public void testCreateHandObjectWithStringValueAce() {
 		testObject = new Hand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
 		assertTrue(testObject.findInCards(14).getValue()==14);
 	}

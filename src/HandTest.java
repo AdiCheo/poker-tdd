@@ -18,9 +18,21 @@ public class HandTest {
 	}
 
 	@Test
-	public void testCreateHandObjectWithString() {
+	public void testCreateHandObjectWithStringNotNull() {
 		testObject = new Hand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
 		assertNotNull(testObject);
+	}
+
+	@Test
+	public void testCreateHandObjectWithStringValues() {
+		testObject = new Hand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertTrue(testObject.findInCards(14).getValue()==14);
+	}
+
+	@Test
+	public void testCreateHandObjectWithStringValueKing() {
+		testObject = new Hand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertTrue(testObject.findInCards(13).getValue()==13);
 	}
 
 	@Test

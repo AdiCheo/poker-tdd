@@ -2,6 +2,12 @@
 public class Card {
 	
 	int value;
+	private int suit;
+
+	public Card(int v, int s) {
+		setValue(v);
+		setSuit(s);
+	}
 
 	public int getValue() {
 		return value;
@@ -11,8 +17,12 @@ public class Card {
 		value = v;
 	}
 
-	public Card(int v) {
-		setValue(v);
+	private void setSuit(int s) {
+		this.suit = s;
+	}
+
+	private int getSuit() {
+		return this.suit;
 	}
 
 	public String getStringValue() {

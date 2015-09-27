@@ -12,13 +12,19 @@ public class CardTest extends TestCase {
 	}
 	
 	@Test	
-	public void testCreateCardObject() throws Exception{
+	public void testCreateCardObject() {
 		assertNotNull(testObject);
 	}
 
 	@Test
-	public void testCardIsSeven() throws Exception{
+	public void testCardIsSeven() {
 		testObject = new Card(7);
+		assertTrue(testObject.getValue()==7);
+	}
+
+	@Test
+	public void testCardIsSpades() {
+		testObject = new Card(7, 1);
 		assertTrue(testObject.getValue()==7);
 	}
 }

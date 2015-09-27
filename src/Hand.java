@@ -28,46 +28,46 @@ public class Hand {
 
 	private void addCard(String c) {
 		if (c.equalsIgnoreCase("ace")){
-			addCard(new Card(14));
+			addCard(new Card(14, 1));
 		}
 		else if (c.equalsIgnoreCase("king")){
-			addCard(new Card(13));
+			addCard(new Card(13, 1));
 		}
 		else if (c.equalsIgnoreCase("queen")){
-			addCard(new Card(12));
+			addCard(new Card(12, 1));
 		}
 		else if (c.equalsIgnoreCase("jack")){
-			addCard(new Card(11));
+			addCard(new Card(11, 1));
 		}
 		else if (c.equalsIgnoreCase("ten")){
-			addCard(new Card(10));
+			addCard(new Card(10, 1));
 		}
 		else if (c.equalsIgnoreCase("nine")){
-			addCard(new Card(9));
+			addCard(new Card(9, 1));
 		}
 		else if (c.equalsIgnoreCase("eight")){
-			addCard(new Card(8));
+			addCard(new Card(8, 1));
 		}
 		else if (c.equalsIgnoreCase("seven")){
-			addCard(new Card(7));
+			addCard(new Card(7, 1));
 		}
 		else if (c.equalsIgnoreCase("six")){
-			addCard(new Card(6));
+			addCard(new Card(6, 1));
 		}
 		else if (c.equalsIgnoreCase("five")){
-			addCard(new Card(5));
+			addCard(new Card(5, 1));
 		}
 		else if (c.equalsIgnoreCase("four")){
-			addCard(new Card(4));
+			addCard(new Card(4, 1));
 		}
 		else if (c.equalsIgnoreCase("three")){
-			addCard(new Card(3));
+			addCard(new Card(3, 1));
 		}
 		else if (c.equalsIgnoreCase("two")){
-			addCard(new Card(2));
+			addCard(new Card(2, 1));
 		}
 		else if (c.equalsIgnoreCase("one")){
-			addCard(new Card(1));
+			addCard(new Card(1, 1));
 		}
 	}
 
@@ -93,7 +93,7 @@ public class Hand {
 
 	public void initCardsWithStrings(int[] cards) {
 		for(int i=0;i<5;i++){
-			addCard(new Card(cards[i]));
+			addCard(new Card(cards[i], 1));
 		}
 	}
 	
@@ -109,5 +109,15 @@ public class Hand {
 			return null;
 		
 		return cards;
+	}
+
+	public String getHandString() {
+		if (cards.size() == 0)
+			return "";
+		String handString = "";
+		for (Card c : cards){
+			handString = handString + c.getStringValue().substring(0, 1).toUpperCase() + c.getStringValue().substring(1) + " ";
+		}
+		return handString;
 	}
 }

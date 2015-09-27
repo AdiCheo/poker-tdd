@@ -120,13 +120,13 @@ public class HandTest {
 
 	@Test
 	public void testAddCard() {
-		testObject.addCard(new Card(10));
+		testObject.addCard(new Card(10, 1));
 		assertTrue(testObject.getCards().get(0).getValue()==10);
 	}
 
 	@Test
 	public void testPrintHand() {
-		testObject.addCard(new Card(10));
+		testObject.addCard(new Card(10, 1));
 //		System.out.print(testObject.getHand().get(0).getValue());
 		assertNotNull(testObject.getHand());
 	}

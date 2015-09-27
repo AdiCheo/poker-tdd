@@ -15,7 +15,14 @@ public class Hand {
 				suit = 2;
 				addCard(c.substring(0, c.length()-6).toLowerCase());
 			}
-				
+			else if (c.charAt(c.length()-2) == 'd') {
+				suit = 2;
+				addCard(c.substring(0, c.length()-8).toLowerCase());
+			}
+			else if (c.charAt(c.length()-2) == 'b') {
+				suit = 2;
+				addCard(c.substring(0, c.length()-5).toLowerCase());
+			}
 		}
 	}
 

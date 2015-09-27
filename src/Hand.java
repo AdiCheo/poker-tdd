@@ -6,68 +6,63 @@ public class Hand {
 	public Hand(String s) {
 		String[] individualCards = s.split(" ");
 		for ( String c : individualCards) {
-			int suit;
-			if (c.charAt(c.length()-2) == 't') {
-				suit = 1;
-				addCard(c.substring(0, c.length()-6));
+			if (c.charAt(c.length()-2) == 'e') {
+				addCard(c.substring(0, c.length()-6), 4);
 			}
-			else if (c.charAt(c.length()-2) == 'e') {
-				suit = 2;
-				addCard(c.substring(0, c.length()-6));
-			}
-			else if (c.charAt(c.length()-2) == 'd') {
-				suit = 2;
-				addCard(c.substring(0, c.length()-8));
+			else if (c.charAt(c.length()-2) == 't') {
+				addCard(c.substring(0, c.length()-6), 3);
 			}
 			else if (c.charAt(c.length()-2) == 'b') {
-				suit = 2;
-				addCard(c.substring(0, c.length()-5));
+				addCard(c.substring(0, c.length()-5), 2);
+			}
+			else if (c.charAt(c.length()-2) == 'd') {
+				addCard(c.substring(0, c.length()-8), 1);
 			}
 		}
 	}
 
-	private void addCard(String c) {
+	private void addCard(String c, int s) {
 		if (c.equalsIgnoreCase("ace")){
-			addCard(new Card(14, 1));
+			addCard(new Card(14, s));
 		}
 		else if (c.equalsIgnoreCase("king")){
-			addCard(new Card(13, 1));
+			addCard(new Card(13, s));
 		}
 		else if (c.equalsIgnoreCase("queen")){
-			addCard(new Card(12, 1));
+			addCard(new Card(12, s));
 		}
 		else if (c.equalsIgnoreCase("jack")){
-			addCard(new Card(11, 1));
+			addCard(new Card(11, s));
 		}
 		else if (c.equalsIgnoreCase("ten")){
-			addCard(new Card(10, 1));
+			addCard(new Card(10, s));
 		}
 		else if (c.equalsIgnoreCase("nine")){
-			addCard(new Card(9, 1));
+			addCard(new Card(9, s));
 		}
 		else if (c.equalsIgnoreCase("eight")){
-			addCard(new Card(8, 1));
+			addCard(new Card(8, s));
 		}
 		else if (c.equalsIgnoreCase("seven")){
-			addCard(new Card(7, 1));
+			addCard(new Card(7, s));
 		}
 		else if (c.equalsIgnoreCase("six")){
-			addCard(new Card(6, 1));
+			addCard(new Card(6, s));
 		}
 		else if (c.equalsIgnoreCase("five")){
-			addCard(new Card(5, 1));
+			addCard(new Card(5, s));
 		}
 		else if (c.equalsIgnoreCase("four")){
-			addCard(new Card(4, 1));
+			addCard(new Card(4, s));
 		}
 		else if (c.equalsIgnoreCase("three")){
-			addCard(new Card(3, 1));
+			addCard(new Card(3, s));
 		}
 		else if (c.equalsIgnoreCase("two")){
-			addCard(new Card(2, 1));
+			addCard(new Card(2, s));
 		}
 		else if (c.equalsIgnoreCase("one")){
-			addCard(new Card(1, 1));
+			addCard(new Card(1, s));
 		}
 	}
 
@@ -116,8 +111,8 @@ public class Hand {
 			return "";
 		String handString = "";
 		for (Card c : cards){
-			handString = handString + c.getStringValue().substring(0, 1).toUpperCase() + c.getStringValue().substring(1) + " ";
+			handString = handString + c.getStringValue() + c.getStringSuit() + " ";
 		}
-		return handString;
+		return handString.trim();
 	}
 }

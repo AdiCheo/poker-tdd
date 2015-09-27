@@ -9,7 +9,10 @@ public class Hand {
 			int suit;
 			if (c.charAt(c.length()-2) == 't') {
 				suit = 1;
-				
+				addCard(c.substring(0, c.length()-6).toLowerCase());
+			}
+			else if (c.charAt(c.length()-2) == 'e') {
+				suit = 2;
 				addCard(c.substring(0, c.length()-6).toLowerCase());
 			}
 				
@@ -22,6 +25,42 @@ public class Hand {
 		}
 		else if (c.equalsIgnoreCase("king")){
 			addCard(new Card(13));
+		}
+		else if (c.equalsIgnoreCase("queen")){
+			addCard(new Card(12));
+		}
+		else if (c.equalsIgnoreCase("jack")){
+			addCard(new Card(11));
+		}
+		else if (c.equalsIgnoreCase("ten")){
+			addCard(new Card(10));
+		}
+		else if (c.equalsIgnoreCase("nine")){
+			addCard(new Card(9));
+		}
+		else if (c.equalsIgnoreCase("eight")){
+			addCard(new Card(8));
+		}
+		else if (c.equalsIgnoreCase("seven")){
+			addCard(new Card(7));
+		}
+		else if (c.equalsIgnoreCase("six")){
+			addCard(new Card(6));
+		}
+		else if (c.equalsIgnoreCase("five")){
+			addCard(new Card(5));
+		}
+		else if (c.equalsIgnoreCase("four")){
+			addCard(new Card(4));
+		}
+		else if (c.equalsIgnoreCase("three")){
+			addCard(new Card(3));
+		}
+		else if (c.equalsIgnoreCase("two")){
+			addCard(new Card(2));
+		}
+		else if (c.equalsIgnoreCase("one")){
+			addCard(new Card(1));
 		}
 	}
 

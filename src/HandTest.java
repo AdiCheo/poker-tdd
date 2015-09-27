@@ -26,85 +26,85 @@ public class HandTest {
 	@Test
 	public void testCreateHandObjectWithStringValueAce() {
 		testObject = new Hand("AceHearts");
-		assertTrue(testObject.findInCards(14).getValue()==14);
+		assertNotNull(testObject.findInCards(14));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueKing() {
 		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		assertNotNull(testObject.findInCards(13));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueQueen() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("QueenDiamonds");
+		assertNotNull(testObject.findInCards(12));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueJack() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("JackClubs");
+		assertNotNull(testObject.findInCards(11));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueTen() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("TenHearts");
+		assertNotNull(testObject.findInCards(10));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueNine() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("NineHearts");
+		assertNotNull(testObject.findInCards(9));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueEight() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("EightHearts");
+		assertNotNull(testObject.findInCards(8));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueSeven() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("SevenHearts");
+		assertNotNull(testObject.findInCards(7));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueSix() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("SixHearts");
+		assertNotNull(testObject.findInCards(6));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueFive() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("FiveHearts");
+		assertNotNull(testObject.findInCards(5));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueFour() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("FourHearts");
+		assertNotNull(testObject.findInCards(4));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueThree() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("ThreeHearts");
+		assertNotNull(testObject.findInCards(3));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueTwo() {
-		testObject = new Hand("KingHearts");
-		assertTrue(testObject.findInCards(13).getValue()==13);
+		testObject = new Hand("TwoHearts");
+		assertNotNull(testObject.findInCards(2));
 	}
 
 	@Test
 	public void testCreateHandObjectWithStringValueOne() {
 		testObject = new Hand("OneSpades");
-		assertTrue(testObject.findInCards(1).getValue()==1);
+		assertNotNull(testObject.findInCards(1));
 	}
 
 	@Test

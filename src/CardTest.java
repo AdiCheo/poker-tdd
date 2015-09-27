@@ -35,8 +35,26 @@ public class CardTest extends TestCase {
 	}
 
 	@Test
-	public void testGetStringSuit() {
+	public void testGetStringDiamond() {
 		testObject = new Card(7, 1);
 		assertEquals("Diamonds", testObject.getStringSuit());
+	}
+
+	@Test
+	public void testGetStringClub() {
+		testObject = new Card(7, 2);
+		assertEquals("Clubs", testObject.getStringSuit());
+	}
+
+	@Test
+	public void testGetStringHeart() {
+		testObject = new Card(7, 3);
+		assertEquals("Hearts", testObject.getStringSuit());
+	}
+
+	@Test
+	public void testGetStringSpade() {
+		testObject = new Card(7, 4);
+		assertEquals("Spades", testObject.getStringSuit());
 	}
 }

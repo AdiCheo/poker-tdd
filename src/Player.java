@@ -13,10 +13,10 @@ public class Player {
 	}
 
 	public void setHand(String playerHand) {
-		this.playerHand = new Hand();
+		this.playerHand = new Hand(playerHand);
 	}
 
-	public Object getHand() {
-		return this.playerHand;	
+	public String getHand() {
+		return this.playerHand.getHandString();	
 	}
 }

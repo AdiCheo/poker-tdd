@@ -27,4 +27,16 @@ public class CardTest extends TestCase {
 		testObject = new Card(7, 1);
 		assertTrue(testObject.getValue()==7);
 	}
+
+	@Test
+	public void testGetStringValue() {
+		testObject = new Card(7, 1);
+		assertTrue(testObject.getStringValue().equals("Seven"));
+	}
+
+	@Test
+	public void testGetStringSuit() {
+		testObject = new Card(7, 1);
+		assertTrue(testObject.getStringValue().equals("Diamonds"));
+	}
 }

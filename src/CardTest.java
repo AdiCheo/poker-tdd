@@ -8,7 +8,7 @@ public class CardTest extends TestCase {
 	Card testObject;
 	
 	public void setUp(){
-		testObject = new Card(1);
+		testObject = new Card(1, 1);
 	}
 	
 	@Test	
@@ -18,7 +18,7 @@ public class CardTest extends TestCase {
 
 	@Test
 	public void testCardIsSeven() {
-		testObject = new Card(7);
+		testObject = new Card(7, 1);
 		assertTrue(testObject.getValue()==7);
 	}
 

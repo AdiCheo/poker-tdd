@@ -43,12 +43,17 @@ public class GameTest {
 	
 
 	@Test
-	public void testCreatePlayersAndDistributeHands() {
+	public void testCreateDistributeHands() {
 		pokerGame = new Game(4);
 		pokerGame.givePlayerHand(0, "AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts");
 		pokerGame.givePlayerHand(1, "FourSpades SixHearts SevenDiamonds EightClubs NineHearts");
 		pokerGame.givePlayerHand(2, "TenSpades JackHearts QueenDiamonds KingClubs AceHearts");
 		pokerGame.givePlayerHand(3, "ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts");
+
+		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHand());
+		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHand());
+		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
+		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
 	}	
 	
 	

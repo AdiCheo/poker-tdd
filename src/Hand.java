@@ -126,14 +126,28 @@ public class Hand {
 				handRank = 1;
 			}
 		}
-		handRank = checkPair(highCard, handRank);
+		handRank = checkPairs(highCard, handRank);
+		handRank = checkThreeKind(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
 	}
 
-	private int checkPair(int highCard, int handRank) {
+	private int checkThreeKind(int highCard, int handRank) {
+		for (Card c : cards){
+			for (Card b : cards){
+				for (Card a : cards){
+					if (c.getValue() == b.getValue() && c.getValue() == a.getValue() && !c.equals(b) && !c.equals(a) && !a.equals(b)){
+						handRank = 4;
+					}
+				}
+			}
+		}
+		return handRank;
+	}
+
+	private int checkPairs(int highCard, int handRank) {
 		int firstPairValue = 0;
 		for (Card c : cards){
 			for (Card b : cards){

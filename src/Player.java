@@ -1,3 +1,4 @@
+import java.util.Comparator;
 
 public class Player {
 
@@ -14,6 +15,10 @@ public class Player {
 
 	public void setHand(String playerHand) {
 		this.playerHand = new Hand(playerHand);
+	}
+
+	public int[] getHandRank() {
+		return this.playerHand.getHandRank();	
 	}
 
 	public String getHand() {

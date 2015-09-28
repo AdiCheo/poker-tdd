@@ -32,6 +32,7 @@ public class CardTest extends TestCase {
 	public void testGetStringDiamond() {
 		testObject = new Card(7, 1);
 		assertEquals("Diamonds", testObject.getStringSuit());
+		assertEquals(1, testObject.getSuit());
 	}
 
 	@Test

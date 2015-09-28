@@ -123,7 +123,7 @@ public class Hand {
 			int value = c.getValue();
 			if (value > highCard){
 				highCard = value;
-				
+				handRank = 1;
 			}
 		}
 		handRank = checkPair(highCard, handRank);
@@ -134,7 +134,14 @@ public class Hand {
 	}
 
 	private int checkPair(int highCard, int handRank) {
-		return 2;
+		for (Card c : cards){
+			for (Card b : cards){
+				if (c.getValue() == b.getValue() && !c.equals(b)){
+					return 2;
+				}
+			}
+		}
+		return handRank;
 	}
 
 	private int checkStraightFlush(int highCard, int handRank) {

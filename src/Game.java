@@ -14,6 +14,7 @@ public class Game {
 
 			while ( numPlayers < 2 || numPlayers > 4){
 				System.out.println("How many players are present? (2-4)");
+				System.out.print("> ");
 				numPlayers = in.nextInt();
 			}
 		}
@@ -76,7 +77,7 @@ public class Game {
 		while(playersDontHaveCards(g)){
 			System.out.println("Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'");
 			Scanner in = new Scanner(System.in);
-
+			System.out.print("> ");
 			String s = in.nextLine();
 			int id = Integer.valueOf(s.trim().substring(0, 1));
 			g.getPlayers().get(id).setHand(s.substring(2).trim());

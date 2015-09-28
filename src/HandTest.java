@@ -130,6 +130,14 @@ public class HandTest {
 	}
 
 	@Test
+	public void testFullHouse() {
+		testObject = new Hand("KingSpades KingHearts KingDiamonds TwoClubs TwoSpades");
+
+		assertEquals("KingSpades KingHearts KingDiamonds TwoClubs TwoSpades", testObject.getHandString());
+		assertArrayEquals(new int[]{7, 13}, testObject.getHandRank());
+	}
+
+	@Test
 	public void testFlush() {
 		testObject = new Hand("ThreeSpades FiveSpades QueenSpades JackSpades TenSpades");
 

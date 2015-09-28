@@ -52,23 +52,23 @@ public class GameTest {
 		pokerGame.givePlayerHand(2, "TenSpades JackHearts QueenDiamonds KingClubs AceHearts");
 		pokerGame.givePlayerHand(3, "ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts");
 
-		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHand());
-		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHand());
-		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
-		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
+		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHandString());
+		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHandString());
+		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHandString());
+		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHandString());
 	}
 
 	@Test
 	public void testDuplicateCard() {
 		pokerGame = new Game(4);
 		pokerGame.givePlayerHand(0, "AceSpades AceSpades ThreeDiamonds FiveClubs TwoHearts");
-		pokerGame.givePlayerHand(1, "FourSpades SixHearts SevenDiamonds EightClubs NineHearts");
+		pokerGame.givePlayerHand(1, "AceSpades SixHearts SevenDiamonds EightClubs NineHearts");
 		pokerGame.givePlayerHand(2, "TenSpades AceSpades QueenDiamonds KingClubs AceHearts");
-		pokerGame.givePlayerHand(3, "ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts");
-		assertEquals("AceSpades ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHand());
-		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHand());
-		assertEquals("TenSpades QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
-		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
+		pokerGame.givePlayerHand(3, "ThreeSpades FiveHearts ThreeDiamonds SixClubs QueenHearts");
+		assertNull(pokerGame.getPlayers().get(0).getHand());
+		assertEquals("AceSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHandString());
+		assertNull(pokerGame.getPlayers().get(2).getHand());
+		assertEquals("ThreeSpades FiveHearts ThreeDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHandString());
 	}
 
 	@Test
@@ -87,15 +87,15 @@ public class GameTest {
 		assertArrayEquals(new int[]{1,12}, players.get(2).getHandRank());
 		assertArrayEquals(new int[]{1,9}, players.get(3).getHandRank());
 
-		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", players.get(0).getHand());
-		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", players.get(1).getHand());
-		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", players.get(2).getHand());
-		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", players.get(3).getHand());
+		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", players.get(0).getHandString());
+		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", players.get(1).getHandString());
+		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", players.get(2).getHandString());
+		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", players.get(3).getHandString());
 
-		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHand());
-		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHand());
-		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
-		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
+		assertEquals("AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts", pokerGame.getPlayers().get(0).getHandString());
+		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHandString());
+		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHandString());
+		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHandString());
 	}
 	
 	@After

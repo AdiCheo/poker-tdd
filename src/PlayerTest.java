@@ -30,19 +30,19 @@ public class PlayerTest {
 	@Test
 	public void testCreatePlayerHand() {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
-		assertNotNull(testObject.getHand());
+		assertNotNull(testObject.getHandString());
 	}
 
 	@Test
 	public void testCreatePlayerHandContent() {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
-		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
+		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHandString());
 	}
 
 	@Test
 	public void testHandRank() {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
-		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
+		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHandString());
 		assertArrayEquals(new int[]{8, 14}, testObject.getHandRank());
 	}
 

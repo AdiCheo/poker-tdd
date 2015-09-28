@@ -117,6 +117,7 @@ public class Hand {
 	}
 
 	public int[] getHandRank() {
+		int[] results = {0, 0};
 		int highCard = 0;
 		int handRank = 0; // 10:RoyalFlush, 9:StraightFlush, 8:FourKind, 7:FullHouse, 6:Flush, 5:Straight, 4:ThreeKind, 3:TwoPair, 2:OnePair, 1:HighCard
 		for (Card c : cards){
@@ -127,13 +128,32 @@ public class Hand {
 			}
 		}
 		handRank = checkPairs(highCard, handRank);
-		handRank = checkThreeKind(highCard, handRank);
+		results = checkThreeKind(highCard, handRank);
+		highCard = results[0]; 
+		handRank = results[1];
 		handRank = checkStraight(highCard, handRank);
 		handRank = checkFlush(highCard, handRank);
+		handRank = checkFullHouse(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
+	}
+
+	private int checkFullHouse(int highCard, int handRank) {
+		if (handRank == 4){
+			for (Card c : cards){
+				if (c.getValue() != highCard){
+					for (Card b : cards){
+						if (c.getValue() == b.getValue() && !c.equals(b)){
+							handRank = 7;
+						}
+					}
+				}
+			}
+			
+		}
+		return handRank;
 	}
 
 	private int checkFlush(int highCard, int handRank) {
@@ -161,17 +181,18 @@ public class Hand {
 		return handRank;
 	}
 
-	private int checkThreeKind(int highCard, int handRank) {
+	private int[] checkThreeKind(int highCard, int handRank) {
 		for (Card c : cards){
 			for (Card b : cards){
 				for (Card a : cards){
 					if (c.getValue() == b.getValue() && c.getValue() == a.getValue() && !c.equals(b) && !c.equals(a) && !a.equals(b)){
 						handRank = 4;
+						highCard = c.getValue();
 					}
 				}
 			}
 		}
-		return handRank;
+		return new int[]{highCard, handRank};
 	}
 
 	private int checkPairs(int highCard, int handRank) {

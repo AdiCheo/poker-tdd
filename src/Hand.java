@@ -128,10 +128,23 @@ public class Hand {
 		}
 		handRank = checkPairs(highCard, handRank);
 		handRank = checkThreeKind(highCard, handRank);
+		handRank = checkStraight(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
+	}
+
+	private int checkStraight(int highCard, int handRank) {
+		for (int i = highCard-1; i > highCard-5; i--){
+			if (findInCards(i) == null){
+				return handRank;
+			}
+			if (i == highCard-4){
+				handRank = 5;
+			}
+		}
+		return handRank;
 	}
 
 	private int checkThreeKind(int highCard, int handRank) {

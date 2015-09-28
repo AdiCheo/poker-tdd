@@ -4,7 +4,13 @@ Adrian Cheoreanu - 100868406
 
 https://github.com/AdiCheo/poker-tdd
 
-- for each feature/requirement you have developed, the names of the corresponding test methods
+Game>testDuplicateCard | 1: Test for Duplicate cards and suites 
+Game>testCreateGameWithSixPlayers | 2: Test for Minimum and maximum number of players (2 to 4) 
+3: Test to ensure there are 5 cards dealt to each player 
+4: Hands are ranked in order ! 
+5: Test for duplicate hands e.g. Royal Flush and ensure they are listed at the top of the ranking order 
+6: Test for invalid cards e.g. fourteenClubs, threeShovels, thDiamonds etc. 
+7: Test for valid player ids 8: Ensure the order of entry is correct - e.g. player id and then the cards
 
 ## Run Game
 

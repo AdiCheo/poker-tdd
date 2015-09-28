@@ -17,11 +17,11 @@ public class Card {
 		value = v;
 	}
 
-	private void setSuit(int s) {
+	public void setSuit(int s) {
 		this.suit = s;
 	}
 
-	private int getSuit() {
+	public int getSuit() {
 		return this.suit;
 	}
 

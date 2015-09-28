@@ -117,6 +117,45 @@ public class Hand {
 	}
 
 	public int[] getHandRank() {
-		return new int[]{10, 0};
+		int highCard = 0;
+		int handRank = 0; // 10:RoyalFlush, 9:StraightFlush, 8:FourKind, 7:FullHouse, 6:Flush, 5:Straight, 4:ThreeKind, 3:TwoPair, 2:OnePair, 1:HighCard
+		for (Card c : cards){
+			int value = c.getValue();
+			if (value > highCard){
+				highCard = value;
+				
+			}
+		}
+		handRank = checkStraightFlush(highCard, handRank);
+		handRank = checkRoyalFlush(highCard, handRank);
+		
+		return new int[]{handRank, highCard};
+	}
+
+	private int checkStraightFlush(int highCard, int handRank) {
+		int suit = findInCards(highCard).getSuit();
+		for (int i = highCard-1; i > highCard-5; i--){
+			if (findInCards(i).getSuit() != suit){
+				break;
+			}
+		}
+		handRank = 9;
+		return handRank;
+	}
+
+	private int checkRoyalFlush(int highCard, int handRank) {
+		if (highCard == 14){ // Test for royal flush
+			int suit = findInCards(14).getSuit();
+			int i;
+			for (i = 13; i > 9; i--){
+				if (findInCards(i).getSuit() != suit){
+					break;
+				}
+			}
+			if (i == 9){
+				handRank = 10;
+			}
+		}
+		return handRank;
 	}
 }

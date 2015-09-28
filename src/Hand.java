@@ -126,20 +126,27 @@ public class Hand {
 				
 			}
 		}
+		handRank = checkPair(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
 	}
 
+	private int checkPair(int highCard, int handRank) {
+		return 2;
+	}
+
 	private int checkStraightFlush(int highCard, int handRank) {
 		int suit = findInCards(highCard).getSuit();
 		for (int i = highCard-1; i > highCard-5; i--){
-			if (findInCards(i).getSuit() != suit){
-				break;
+			if (findInCards(i) == null || findInCards(i).getSuit() != suit){
+				return handRank;
+			}
+			if (i == highCard-4){
+				handRank = 9;
 			}
 		}
-		handRank = 9;
 		return handRank;
 	}
 

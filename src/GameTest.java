@@ -43,9 +43,12 @@ public class GameTest {
 	
 
 	@Test
-	public void testCreatePlayers() {
+	public void testCreatePlayersAndDistributeHands() {
 		pokerGame = new Game(4);
-		assertNotNull(pokerGame.getPlayers());
+		pokerGame.givePlayerHand(0, "AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts");
+		pokerGame.givePlayerHand(1, "FourSpades SixHearts SevenDiamonds EightClubs NineHearts");
+		pokerGame.givePlayerHand(2, "TenSpades JackHearts QueenDiamonds KingClubs AceHearts");
+		pokerGame.givePlayerHand(3, "ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts");
 	}	
 	
 	

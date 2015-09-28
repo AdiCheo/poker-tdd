@@ -16,8 +16,7 @@ public class GameTest {
 	@Before
 	public void setUp() throws Exception {
 	    System.setOut(new PrintStream(outContent));
-	    
-		pokerGame = new Game();
+		pokerGame = new Game(2);
 	}
 
 	@Test
@@ -40,7 +39,6 @@ public class GameTest {
 		assertNotNull(pokerGame.getPlayers().get(2));
 		assertNotNull(pokerGame.getPlayers().get(3));
 	}
-	
 
 	@Test
 	public void testCreateDistributeHands() {
@@ -54,8 +52,7 @@ public class GameTest {
 		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHand());
 		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
 		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
-	}	
-	
+	}
 	
 	@After
 	public void cleanUpStreams() {

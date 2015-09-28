@@ -13,7 +13,7 @@ public class PlayerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		testObject = new Player();
+		testObject = new Player(0);
 	}
 
 	@Test
@@ -50,8 +50,8 @@ public class PlayerTest {
 	public void testCompareTwoPlayersHands() {
 
 		Player[] playersArr = new Player[2];
-		playersArr[0] = new Player();
-		playersArr[1] = new Player();
+		playersArr[0] = new Player(0);
+		playersArr[1] = new Player(1);
 		playersArr[0].setHand("KingSpades AceHearts TwoDiamonds OneClubs NineSpades");
 		playersArr[1].setHand("AceSpades KingSpades QueenSpades JackSpades TenSpades");
 		List<Player> players = new ArrayList<Player>(Arrays.asList(playersArr));

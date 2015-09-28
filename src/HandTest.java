@@ -123,7 +123,7 @@ public class HandTest {
 
 	@Test
 	public void testStraightFlush() {
-		testObject = new Hand("AceSpades KingSpades QueenSpades JackSpades TenSpades");
+		testObject = new Hand("KingSpades QueenSpades JackSpades TenSpades NineSpades");
 
 		assertEquals("KingSpades QueenSpades JackSpades TenSpades NineSpades", testObject.getHandString());
 		assertArrayEquals(new int[]{9, 13}, testObject.getHandRank());

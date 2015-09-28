@@ -84,7 +84,7 @@ public class Game {
 				System.out.println("Invalid id - usually 0 - 3 based on number of players");
 				continue;
 			}
-			g.getPlayers().get(id).setHand(s.substring(2).trim());
+			g.givePlayerHand(id, s.substring(2).trim());
 		}
 
 		List<Player> players = new ArrayList<Player>(g.players);

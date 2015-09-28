@@ -40,6 +40,7 @@ public class Game {
 		Hand tmpHand = new Hand(h);
 		// Check for less than or more than 5 cards
 		if (tmpHand.getCards().size() != 5){
+			System.out.println("Invalid number of cards - must be 5");
 			return false;
 		}
 		//Check tmpHand does not contain duplicates

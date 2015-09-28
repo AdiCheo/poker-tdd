@@ -115,10 +115,10 @@ public class HandTest {
 
 	@Test
 	public void testRoyalFlush() {
-		testObject =new Hand("AceSpades KingSpades QueenSpades JackSpades TenSpades");
+		testObject = new Hand("AceSpades KingSpades QueenSpades JackSpades TenSpades");
 
 		assertEquals("AceSpades KingSpades QueenSpades JackSpades TenSpades", testObject.getHandString());
-		assertEquals("10", testObject.getHandRank());
+		assertArrayEquals(new int[]{10, 0}, testObject.getHandRank());
 	}
 
 	@Test

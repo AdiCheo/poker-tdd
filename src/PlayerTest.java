@@ -1,5 +1,10 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,5 +44,19 @@ public class PlayerTest {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
 		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
 		assertArrayEquals(new int[]{8, 14}, testObject.getHandRank());
+	}
+
+	@Test
+	public void testCompareTwoPlayersHands() {
+
+		Player[] playersArr = new Player[2];
+		playersArr[0] = new Player();
+		playersArr[1] = new Player();
+		playersArr[0].setHand("KingSpades AceHearts TwoDiamonds OneClubs NineSpades");
+		playersArr[1].setHand("AceSpades KingSpades QueenSpades JackSpades TenSpades");
+		List<Player> players = new ArrayList<Player>(Arrays.asList(playersArr));
+		Collections.sort(players, Player.getCompByHandRank());
+		
+		assertArrayEquals(new int[]{10,14}, players.get(0).getHandRank());
 	}
 }

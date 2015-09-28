@@ -34,7 +34,12 @@ public class GameTest {
 	public void testCreateGameWithFourPlayers() {
 		pokerGame = new Game(4);
 		assertNotNull(pokerGame);
-	}	
+		assertNotNull(pokerGame.getPlayers());
+		assertNotNull(pokerGame.getPlayers().get(0));
+		assertNotNull(pokerGame.getPlayers().get(1));
+		assertNotNull(pokerGame.getPlayers().get(2));
+		assertNotNull(pokerGame.getPlayers().get(3));
+	}
 	
 
 	@Test

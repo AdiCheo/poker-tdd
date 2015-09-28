@@ -3,11 +3,12 @@ import java.util.ArrayList;
 public class Game {
 	public Game(int p) {
 		players = new ArrayList<Player>(4);
-		System.out.println("Welcome to PokerTDD - How many players are present?");
-		for (int i=0;i<p;i++){
-			players.add(new Player());
+		System.out.println("Welcome to PokerTDD");
+		if(p>2 && p<5){
+			for (int i=0;i<p;i++){
+				players.add(new Player());
+			}
 		}
-		
 	}
 
 	public ArrayList<Player> getPlayers() {
@@ -23,6 +24,10 @@ public class Game {
 
 	private boolean cardsAreGood(String h) {
 		Hand tmpHand = new Hand(h);
+		// Check for less than or more than 5 cards
+		if (tmpHand.getCards().size() != 5){
+			return false;
+		}
 		//Check tmpHand does not contain duplicates
 		for (int i=0;i<5;i++){
 			for (int j=0;j<5;j++){

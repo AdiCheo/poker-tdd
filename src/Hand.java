@@ -134,10 +134,26 @@ public class Hand {
 		handRank = checkStraight(highCard, handRank);
 		handRank = checkFlush(highCard, handRank);
 		handRank = checkFullHouse(highCard, handRank);
+		handRank = checkFourKind(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
+	}
+
+	private int checkFourKind(int highCard, int handRank) {
+		int count = 0;
+		if (handRank == 4){
+			for (Card c : cards){
+				if (c.getValue() == highCard){
+					count++;
+					if (count == 4){
+						handRank = 8;
+					}
+				}
+			}
+		}
+		return handRank;
 	}
 
 	private int checkFullHouse(int highCard, int handRank) {

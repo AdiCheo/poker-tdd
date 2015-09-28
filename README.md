@@ -6,7 +6,30 @@ https://github.com/AdiCheo/poker-tdd
 
 - for each feature/requirement you have developed, the names of the corresponding test methods
 
-- instructions on how to run your code
+## Run Game
+main in Game
+
+Sample output
+```
+Welcome to PokerTDD
+How many players are present? (2-4)
+4
+Player 1 id: 0
+Player 2 id: 1
+Player 3 id: 2
+Player 4 id: 3
+Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'
+0 TenSpades JackHearts QueenDiamonds KingClubs AceHearts
+Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'
+1 AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts
+Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'
+2 ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts
+Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'
+3 FourSpades SixHearts SevenDiamonds EightClubs NineHearts
+Rank 1 - Player 0 - TenSpades JackHearts QueenDiamonds KingClubs AceHearts
+Rank 1 - Player 1 - AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts
+Rank 1 - Player 2 - ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts
+```
 
 
 # Description

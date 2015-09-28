@@ -21,8 +21,12 @@ public class Player {
 		return this.playerHand.getHandRank();	
 	}
 
-	public String getHand() {
+	public String getHandString() {
 		return this.playerHand.getHandString();	
+	}
+
+	public Hand getHand() {
+		return this.playerHand;	
 	}
 
 	public static Comparator<Player> getCompByHandRank() {

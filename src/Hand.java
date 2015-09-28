@@ -134,10 +134,15 @@ public class Hand {
 	}
 
 	private int checkPair(int highCard, int handRank) {
+		int firstPairValue = 0;
 		for (Card c : cards){
 			for (Card b : cards){
-				if (c.getValue() == b.getValue() && !c.equals(b)){
-					return 2;
+				if (firstPairValue > 0 && c.getValue() == b.getValue() && !c.equals(b) && c.getValue() != firstPairValue){
+					handRank = 3;				
+				}
+				else if (c.getValue() == b.getValue() && !c.equals(b)){
+					handRank = 2;
+					firstPairValue = c.getValue();
 				}
 			}
 		}

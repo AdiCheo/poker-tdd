@@ -89,6 +89,16 @@ public class GameTest {
 	}
 
 	@Test
+	public void testDistributeBadCards() {
+		pokerGame = new Game(2);
+		pokerGame.givePlayerHand(0, "OneShovel TenSpades JackHearts Brolo KingClubs");
+		pokerGame.givePlayerHand(1, "FourSpades ThreeSpades FiveTickets Lallal SixClubs ");
+
+		assertNull(pokerGame.getPlayers().get(0).getHand());
+		assertNull(pokerGame.getPlayers().get(1).getHand());
+	}
+
+	@Test
 	public void testDuplicateCard() {
 		pokerGame = new Game(4);
 		pokerGame.givePlayerHand(0, "AceSpades AceSpades ThreeDiamonds FiveClubs TwoHearts");
@@ -127,6 +137,25 @@ public class GameTest {
 		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHandString());
 		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHandString());
 	}
+
+	@Test
+	public void testRankHandsTwoRoyalFlush() {
+		pokerGame = new Game(2);
+		pokerGame.givePlayerHand(0, "AceSpades KingSpades QueenSpades JackSpades TenSpades");
+		pokerGame.givePlayerHand(1, "AceHearts KingHearts QueenHearts JackHearts TenHearts");
+
+		List<Player> players = new ArrayList<Player>(pokerGame.players);
+		Collections.sort(players, Player.getCompByHandRank());
+
+		assertArrayEquals(new int[]{10,14}, players.get(0).getHandRank());
+		assertArrayEquals(new int[]{10,14}, players.get(1).getHandRank());
+
+		assertEquals("AceSpades KingSpades QueenSpades JackSpades TenSpades", players.get(0).getHandString());
+		assertEquals("AceHearts KingHearts QueenHearts JackHearts TenHearts", players.get(1).getHandString());
+	
+		assertEquals("AceSpades KingSpades QueenSpades JackSpades TenSpades", pokerGame.getPlayers().get(0).getHandString());
+		assertEquals("AceHearts KingHearts QueenHearts JackHearts TenHearts", pokerGame.getPlayers().get(1).getHandString());
+		}
 	
 	@After
 	public void cleanUpStreams() {

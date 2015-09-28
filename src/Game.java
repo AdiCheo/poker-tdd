@@ -4,7 +4,7 @@ public class Game {
 	public Game(int p) {
 		players = new ArrayList<Player>(4);
 		System.out.println("Welcome to PokerTDD");
-		if(p>2 && p<5){
+		if(p>1 && p<5){
 			for (int i=0;i<p;i++){
 				players.add(new Player());
 			}

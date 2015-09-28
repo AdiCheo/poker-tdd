@@ -115,4 +115,8 @@ public class Hand {
 		}
 		return handString.trim();
 	}
+
+	public int[] getHandRank() {
+		return new int[]{10, 0};
+	}
 }

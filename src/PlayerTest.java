@@ -33,4 +33,11 @@ public class PlayerTest {
 		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
 		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
 	}
+
+	@Test
+	public void testHandRank() {
+		testObject.setHand("AceHearts AceSpades AceClubs AceDiamonds KingHearts");
+		assertEquals("AceHearts AceSpades AceClubs AceDiamonds KingHearts", testObject.getHand());
+		assertArrayEquals(new int[]{3, 13}, testObject.getHandRank());
+	}
 }

@@ -129,10 +129,24 @@ public class Hand {
 		handRank = checkPairs(highCard, handRank);
 		handRank = checkThreeKind(highCard, handRank);
 		handRank = checkStraight(highCard, handRank);
+		handRank = checkFlush(highCard, handRank);
 		handRank = checkStraightFlush(highCard, handRank);
 		handRank = checkRoyalFlush(highCard, handRank);
 		
 		return new int[]{handRank, highCard};
+	}
+
+	private int checkFlush(int highCard, int handRank) {
+		int suit = cards.get(0).getSuit();
+		for (int i = 1; i < 5; i++){
+			if (cards.get(i).getSuit() != suit){
+				return handRank;
+			}
+			if (i == 4){
+				handRank = 6;
+			}
+		}
+		return handRank;
 	}
 
 	private int checkStraight(int highCard, int handRank) {

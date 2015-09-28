@@ -1,12 +1,25 @@
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 	public Game(int p) {
 		players = new ArrayList<Player>(4);
 		System.out.println("Welcome to PokerTDD");
-		if(p>1 && p<5){
-			for (int i=0;i<p;i++){
-				players.add(new Player());
+		int numPlayers = p;
+		if (numPlayers == -1) {
+			Scanner in = new Scanner(System.in);
+
+			while ( numPlayers < 2 || numPlayers > 4){
+				System.out.println("How many players are present? (2-4)");
+				numPlayers = in.nextInt();
+			}
+		}
+		if ( numPlayers > 1 && numPlayers <5){
+			for (int i=0;i<numPlayers;i++){
+				players.add(new Player(i));
 			}
 		}
 	}
@@ -55,6 +68,41 @@ public class Game {
 			
 		}
 		return true;
+	}
+	
+	public static void main(String[] args){
+		Game g = new Game(-1);
+		printPlayerIds(g);
+		while(playersDontHaveCards(g)){
+			System.out.println("Enter hand for each player in the form 'id RankSuit RankSuit RankSuit RankSuit RankSuit'");
+			Scanner in = new Scanner(System.in);
+
+			String s = in.nextLine();
+			int id = Integer.valueOf(s.trim().substring(0, 1));
+			g.getPlayers().get(id).setHand(s.substring(2).trim());
+		}
+
+		List<Player> players = new ArrayList<Player>(g.players);
+		Collections.sort(players, Player.getCompByHandRank());
+		int i = 1;
+		for ( Player p : players){
+			System.out.println("Rank " + i + " - Player " + p.getId() + " - " + p.getHandString());
+			i++;
+		}
+	}
+
+	private static boolean playersDontHaveCards(Game g) {
+		for (Player p : g.players){
+			if(p.getHand() == null)
+				return true;
+		}		
+		return false;
+	}
+
+	private static void printPlayerIds(Game g) {
+		for (int i=0;i<g.getPlayers().size();i++){
+			System.out.println("Player " + (i+1) + " id: " + g.getPlayers().get(i).id);
+		}
 	}
 
 }

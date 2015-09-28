@@ -5,6 +5,10 @@ public class Player {
 	int id;
 	Hand playerHand;
 
+	public Player(int i) {
+		this.id = i;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

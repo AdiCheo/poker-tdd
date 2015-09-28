@@ -18,4 +18,8 @@ public class Game {
 	
 	ArrayList<Player> players = new ArrayList<Player>(5);
 
+	public void givePlayerHand(int p, String h) {
+		players.get(p).setHand(h);
+	}
+
 }

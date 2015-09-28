@@ -245,7 +245,7 @@ public class Hand {
 			int suit = findInCards(14).getSuit();
 			int i;
 			for (i = 13; i > 9; i--){
-				if (findInCards(i).getSuit() != suit){
+				if (findInCards(i) == null || findInCards(i).getSuit() != suit){
 					break;
 				}
 			}

@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Game {
 	public Game(int p) {
-		players = new ArrayList<Player>(4);
 		System.out.println("Welcome to PokerTDD");
 		int numPlayers = p;
 		if (numPlayers == -1) {
@@ -18,6 +17,7 @@ public class Game {
 				numPlayers = in.nextInt();
 			}
 		}
+		players = new ArrayList<Player>(numPlayers);
 		if ( numPlayers > 1 && numPlayers <5){
 			for (int i=0;i<numPlayers;i++){
 				players.add(new Player(i));
@@ -80,6 +80,10 @@ public class Game {
 			System.out.print("> ");
 			String s = in.nextLine();
 			int id = Integer.valueOf(s.trim().substring(0, 1));
+			if (id > g.players.size()){
+				System.out.println("Invalid id - usually 0 - 3 based on number of players");
+				continue;
+			}
 			g.getPlayers().get(id).setHand(s.substring(2).trim());
 		}
 

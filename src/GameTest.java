@@ -30,7 +30,7 @@ public class GameTest {
 
 	@Test
 	public void testNewGameAsksForNumberOfPlayer() {
-	    assertEquals("Welcome to PokerTDD - How many players are present?", outContent.toString().trim());
+	    assertEquals("Welcome to PokerTDD", outContent.toString().trim());
 	}	
 
 	@Test
@@ -45,6 +45,22 @@ public class GameTest {
 	}
 
 	@Test
+	public void testCreateGameWithSixPlayers() {
+		pokerGame = new Game(6);
+		assertNotNull(pokerGame);
+		assertNotNull(pokerGame.getPlayers());
+		assertEquals(0, pokerGame.getPlayers().size());
+	}
+
+	@Test
+	public void testCreateGameWithOnePlayer() {
+		pokerGame = new Game(1);
+		assertNotNull(pokerGame);
+		assertNotNull(pokerGame.getPlayers());
+		assertEquals(0, pokerGame.getPlayers().size());
+	}
+
+	@Test
 	public void testCreateDistributeHands() {
 		pokerGame = new Game(4);
 		pokerGame.givePlayerHand(0, "AceSpades KingHearts ThreeDiamonds FiveClubs TwoHearts");
@@ -56,6 +72,20 @@ public class GameTest {
 		assertEquals("FourSpades SixHearts SevenDiamonds EightClubs NineHearts", pokerGame.getPlayers().get(1).getHandString());
 		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHandString());
 		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHandString());
+	}
+
+	@Test
+	public void testDistributeBadHands() {
+		pokerGame = new Game(4);
+		pokerGame.givePlayerHand(0, "ThreeDiamonds FiveClubs TwoHearts");
+		pokerGame.givePlayerHand(1, "FourSpades FourSpades SixHearts SevenDiamonds EightClubs NineHearts");
+		pokerGame.givePlayerHand(2, "FourSpades TenSpades JackHearts QueenDiamonds KingClubs AceHearts");
+		pokerGame.givePlayerHand(3, "FourSpades ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts");
+
+		assertNull(pokerGame.getPlayers().get(0).getHand());
+		assertNull( pokerGame.getPlayers().get(1).getHand());
+		assertNull(pokerGame.getPlayers().get(2).getHand());
+		assertNull(pokerGame.getPlayers().get(3).getHand());
 	}
 
 	@Test

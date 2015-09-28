@@ -53,6 +53,15 @@ public class GameTest {
 		assertEquals("TenSpades JackHearts QueenDiamonds KingClubs AceHearts", pokerGame.getPlayers().get(2).getHand());
 		assertEquals("ThreeSpades FiveHearts TwoDiamonds SixClubs QueenHearts", pokerGame.getPlayers().get(3).getHand());
 	}
+
+	@Test
+	public void testRoyalFlush() {
+		pokerGame = new Game(1);
+		pokerGame.givePlayerHand(0, "AceSpades KingSpades QueenSpades JackSpades TenSpades");
+
+		assertEquals("AceSpades KingSpades QueenSpades JackSpades TenSpades", pokerGame.getPlayers().get(0).getHand());
+		assertEquals(0, pokerGame.getPlayers().get(0).getHandRank());
+	}
 	
 	@After
 	public void cleanUpStreams() {
